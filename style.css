@@ -1,0 +1,64 @@
+/* 📦 Sections Grid */
+.sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* 🎨 Section Card Box */
+.sections .card {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border-radius: 20px;
+  padding: 1.8rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #444;
+  cursor: pointer;
+  
+  /* Shadow for floating effect */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12),
+              0 4px 10px rgba(0,0,0,0.08);
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  animation: cardFadeUp 0.8s forwards;
+}
+
+/* ✨ Different delay for each card */
+.sections .card:nth-child(1) { animation-delay: 0.2s; }
+.sections .card:nth-child(2) { animation-delay: 0.4s; }
+.sections .card:nth-child(3) { animation-delay: 0.6s; }
+.sections .card:nth-child(4) { animation-delay: 0.8s; }
+.sections .card:nth-child(5) { animation-delay: 1s; }
+
+@keyframes cardFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 🌟 Hover Effect */
+.sections .card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2),
+              0 6px 12px rgba(0,0,0,0.1);
+  background: linear-gradient(145deg, #f9f9f9, #ffffff);
+}
+
+/* 🌓 Dark Mode for Cards */
+body.dark .sections .card {
+  background: linear-gradient(145deg, #1b1b1b, #2a2a2a);
+  color: #ddd;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6),
+              0 4px 10px rgba(0,0,0,0.4);
+}
+
+body.dark .sections .card:hover {
+  background: linear-gradient(145deg, #222, #333);
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.8),
+              0 6px 12px rgba(0,0,0,0.5);
+}
